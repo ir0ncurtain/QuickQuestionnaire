@@ -1,0 +1,38 @@
+<!--<form>
+  <div *ngFor="let question of questions">
+    <p>{{question.text}}</p>
+    <div *ngIf="question.type === 'text'">
+      <input type="text" [(ngModel)]="question.answer" name="{{question.id}}">
+    </div>
+    <div *ngIf="question.type === 'multiple'">
+      <div *ngFor="let option of question.options">
+        <mat-checkbox [(ngModel)]="option.selected">{{option.text}}</mat-checkbox>
+      </div>
+    </div>
+    <div *ngIf="question.type === 'single'">
+      <mat-radio-group [(ngModel)]="question.answer" name="{{question.id}}">
+        <mat-radio-button *ngFor="let option of question.options" [value]="option.text">{{option.text}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>-->
+<form>
+  <div *ngFor="let question of questions">
+    <p>{{question.text}}</p>
+    <div *ngIf="question.type === 'text'">
+      <input type="text" [(ngModel)]="question.answer" name="{{question.id}}">
+    </div>
+    <div *ngIf="question.type === 'multiple'">
+      <div *ngFor="let option of question.options">
+        <mat-checkbox [(ngModel)]="option.selected" [attr.aria-label]="option.text">{{option.text}}</mat-checkbox>
+      </div>
+    </div>
+    <div *ngIf="question.type === 'single'">
+      <mat-radio-group [(ngModel)]="question.answer" name="{{question.id}}">
+        <mat-radio-button *ngFor="let option of question.options" [value]="option.text" [attr.aria-label]="option.text">{{option.text}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
